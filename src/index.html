@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسک دوره جاوااسکریپت</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <h1 class="main-title">لیست تراکنش ها</h1>
+        <div class="search-box hidden">
+          <input type="text" id="searchInput" placeholder="جستجو تراکنش..." />
+        </div>
+      </div>
+      <div class="btn">
+        <button id="loadBtn">بارگذاری تراکنش ها</button>
+      </div>
+      <!-- table -->
+      <div class="transaction-page hidden">
+        <h2 class="section-title">لیست تراکنش های شما</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ردیف</th>
+                <th>نوع تراکنش</th>
+                <th>
+                  مبلغ
+                  <span class="arrow down" id="sortPrice"></span>
+                </th>
+                <th>شماره پیگیری</th>
+                <th>
+                  تاریخ تراکنش
+                  <span class="arrow down" id="sortDate"></span>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="transactionBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
