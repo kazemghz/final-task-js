@@ -65,20 +65,23 @@ function fetchAndRenderData(search = "") {
     .then((data) => renderTable(data))
     .catch((err) => console.error("خطا در دریافت داده‌ها:", err));
 }
+function persianDate(date) {
+  const dateObj = new Date(date);
+  return dateObj.toLocaleString("fa-IR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+}
 function renderTable(data) {
   tbody.innerHTML = "";
   data.forEach((item, index) => {
     const tr = document.createElement("tr");
     const typeColor = item.type.includes("افزایش") ? "green" : "red";
-    const dateObj = new Date(item.date);
-    const formattedDate = dateObj.toLocaleString("fa-IR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    });
+    const formattedDate = persianDate(item.date);
     tr.innerHTML = `
       <td>${index + 1}</td>
       <td class="${typeColor}">${item.type}</td>
